@@ -13,6 +13,7 @@
     <main>
         <h1>Frequently Asked Questions</h1>
 
+        <!-- Q1 (Keep open by default) -->
         <details open>
             <summary>Why should I use FontStar?</summary>
             <div class="faq-content">
@@ -23,43 +24,54 @@
                     <li>Safe and privacy-respecting</li>
                     <li>Designed specifically for Apple devices</li>
                 </ul>
-                <p>I designed this app because I use Safari every day and I'm tired of having to endure many website's poor readability and aesthetics. Apple devices are packed with so many beautiful fonts—why can't we just use them directly? So I decided to build an extension to do exactly that, after I scoured the App Store trying out all the apps out there, but couldn't find one that I truly love.</p>
-                <p>So far, I'm loving this one I've made, and I hope you'll love it too!</p>
+                <p>I designed this app because I use Safari every day and I’m tired of having to endure many website’s poor readability and aesthetics. Apple devices are packed with so many beautiful fonts—why can’t we just use them directly? So I decided to build an extension to do exactly that, after I scoured the App Store trying out all the apps out there, but couldn’t find one that I truly love. So far, I’m loving this one I’ve made, and I hope you’ll love it too!</p>
             </div>
         </details>
 
+        <!-- Q2 -->
         <details>
             <summary>Can I use FontStar in "Web Apps"?</summary>
             <div class="faq-content">
-                <p>Yes, starting with macOS 15 (Sequoia). FontStar works inside Web Apps created with Safari’s “Add to Dock” feature.</p>
+                <p>Yes, starting with macOS 15 (Sequoia). FontStar works inside Web Apps created with Safari’s “Add to Dock” feature. To enable it, press “Command + Comma” inside the Web App, open the “Extensions” panel, and turn on FontStar. This feature is only available on macOS, not iOS — this is an Apple system limitation. Also note: Safari extensions do not work in In-App browsers on iPhone (for example, when you open a link on Instagram, you’re using an In-App browser). This too is due to Apple’s system limitation.</p>
             </div>
         </details>
 
+        <!-- Q3 -->
         <details>
             <summary>Why does the font I select appear as Times New Roman sometimes?</summary>
             <div class="faq-content">
-                <p>If you’re still experiencing this minor issue, please update your FontStar app to the latest version from the App Store.</p>
+                <p>If you’re still experiencing this minor issue, please update your FontStar app to the latest version from the App Store. The issue happens on high-security websites (like The Guardian or some government sites) because their Content Security Policy (CSP) blocks fonts loaded from external sources. To keep our app fast and lightweight, we use trusted font service (Google Fonts) in our older versions of FontStar. However, if a site’s CSP blocks Google’s font services, your chosen fonts can’t be applied — and Safari falls back to Times New Roman. This is a security feature of the website, not a bug in our app. 👉 In the latest version of FontStar, we’ve resolve this minor inconvenience once for all. Please update the app and enjoy!</p>
             </div>
         </details>
 
+        <!-- Q4 -->
         <details>
             <summary>Is FontStar safe?</summary>
             <div class="faq-content">
-                <p>Yes. FontStar and its Safari extension are completely safe to use. Your browsing data is never collected.</p>
+                <p>Yes. FontStar and its Safari extension are completely safe to use. Your browsing data is never collected. FontStar is a paid app, thoughtfully designed for iPhone, iPad, and Mac (Apple Silicon). Its development is funded directly by customers — the app is the product, not you or your data.</p>
             </div>
         </details>
 
+        <!-- Q5 -->
         <details>
             <summary>Is any of my browsing data collected?</summary>
             <div class="faq-content">
-                <p>No, FontStar does not collect, store, or transmit any data. The extension requires access to the webpages you visit in order to analyze their styles and replace fonts, but none of this data is ever stored.</p>
+                <p>No, FontStar does not collect, store, or transmit any data. The extension requires access to the webpages you visit in order to analyze their styles and replace fonts, but none of this data is ever stored. When you first enable FontStar, Safari will show a system alert stating that extensions can access the pages you visit. This alert appears for all Safari extensions — not just FontStar.</p>
             </div>
         </details>
 
+        <!-- Q6 -->
         <details>
             <summary>Why does Apple’s alert say FontStar can “read everything”?</summary>
             <div class="faq-content">
-                <p>Apple’s alert text is intentionally broad to warn users about the potential misuse of extension permissions. While technically accurate, it does not reflect FontStar’s actual behavior.</p>
+                <p>Apple’s alert text is intentionally broad to warn users about the potential misuse of extension permissions. While technically accurate, it does not reflect FontStar’s actual behavior. FontStar never stores, tracks, or transmits your personal data. In fact, it does not collect any data at all.</p>
+                <p>There are 3 ways to run FontStar:</p>
+                <ol>
+                    <li><strong>"Always Allow on Every Website":</strong> This is the most convenient option. FontStar is able to run on every website, so you don’t have to go through the permission steps again and again. FontStar will never store or track your browsing data, even in this mode.</li>
+                    <li><strong>"Always Allow on This Website":</strong> In this mode, FontStar will only be able to run on websites you've already granted access to. For every new website you want to use FontStar on, you need to activate it manually. Your iPhone/iPad/Mac remembers the permission settings for these websites. FontStar does not handle this “memory”.</li>
+                    <li><strong>"Allow for One Day" on Specific Websites:</strong> If you choose this option, your iPhone/iPad/Mac will remember your choice for a day, and then reset the permission for FontStar to run on that website after 24 hours.</li>
+                </ol>
+                <p>Finally, if you ever don’t trust an extension, you can disable it completely in Safari’s settings.</p>
             </div>
         </details>
     </main>
