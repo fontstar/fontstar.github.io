@@ -26,6 +26,15 @@ ul { margin-top: 10px; margin-bottom: 10px; }
 .help-footer { text-align: center; margin-top: 40px; font-size: 1rem; }
 .help-footer a { color: #333; }
 
+/* --- Utility Styles (like for in-line icons) --- */
+.inline-svg {
+    display: inline-block;
+    height: 1.1em; /* slightly taller than the line-height for better visibility */
+    width: auto;
+    vertical-align: text-bottom; /* aligns with text baseline */
+    margin: 0 0.1em; /* adds small spacing between icons and text */
+}
+
 /* Shared Footer Styles */
 footer { background-color: #FAEDED; text-align: center; padding: 30px 20px; font-size: 0.9rem; margin-top: 40px; }
 footer a { color: #333; text-decoration: underline; text-underline-offset: 2px; }
