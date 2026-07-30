@@ -40,11 +40,11 @@ footer { background-color: #FAEDED; text-align: center; padding: 30px 20px; font
 footer a { color: #333; text-decoration: underline; text-underline-offset: 2px; }
 footer span { margin: 0 10px; color: #666; }
 
-/* Smart sizing and centering for the subpage header logo */
+/* Reusing homepage dynamic sizing + centering for subpages */
 .header-logo {
-    max-width: 260px; /* Limits the max size to match your homepage */
-    width: 100%;      /* Ensures it scales down on tiny screens */
-    height: auto;     /* Prevents stretching */
-    display: block;   /* Required for the margin trick to work */
-    margin: 0 auto;   /* Centers the logo horizontally */
+    width: clamp(120px, 30vw, 220px); /* Reused from index.html! */
+    height: auto;                     /* Reused from index.html! */
+    object-fit: contain;              /* Reused from index.html! */
+    display: block;                   /* Added to ensure centering */
+    margin: 0 auto;                   /* Added to ensure centering */
 }
