@@ -39,3 +39,12 @@ ul { margin-top: 10px; margin-bottom: 10px; }
 footer { background-color: #FAEDED; text-align: center; padding: 30px 20px; font-size: 0.9rem; margin-top: 40px; }
 footer a { color: #333; text-decoration: underline; text-underline-offset: 2px; }
 footer span { margin: 0 10px; color: #666; }
+
+/* Smart sizing and centering for the subpage header logo */
+.header-logo {
+    max-width: 260px; /* Limits the max size to match your homepage */
+    width: 100%;      /* Ensures it scales down on tiny screens */
+    height: auto;     /* Prevents stretching */
+    display: block;   /* Required for the margin trick to work */
+    margin: 0 auto;   /* Centers the logo horizontally */
+}
