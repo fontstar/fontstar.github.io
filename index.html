@@ -8,20 +8,75 @@
     <title>FontStar - Your Safari Reading Experience</title>
     <link rel="stylesheet" href="/css/style.css">
     
-    <!-- Page-Specific Carousel Styles -->
     <style>
-        /* Modern Mobile Peeking Carousel with CSS Scroll Snap */
+        /* Base & Typography */
+        :root {
+            --carousel-gap: 1rem;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 0 1rem;
+        }
+
+        /* Dynamic Logo Size */
+        .hero-logo {
+            width: clamp(120px, 30vw, 220px); /* Min 120px, dynamic scaling, Max 220px */
+            height: auto;
+            object-fit: contain;
+        }
+
+        .slogan {
+            font-size: clamp(1.1rem, 4vw, 1.3rem);
+            color: #555;
+            margin: 1rem auto 0;
+            font-weight: 500;
+            max-width: 600px;
+        }
+
+        .app-store-button-container {
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+        
+        .app-store-button-container:hover {
+            transform: scale(1.03);
+        }
+
+        .app-store-button img {
+            height: clamp(50px, 8vw, 60px); 
+            width: auto;
+        }
+
+        /* Carousel Wrapper for Arrows */
+        .carousel-wrapper {
+            position: relative;
+            max-width: 1300px;
+            margin: 3rem auto;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Modern Mobile Peeking Carousel */
         .carousel-container {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            gap: 1rem; /* Space between slides */
-            padding-bottom: 1.5rem; /* Space for scrollbar on desktop */
-            margin-top: 3rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            /* Hide standard scrollbar for clean look */
+            scroll-behavior: smooth;
+            gap: var(--carousel-gap);
+            padding: 1.5rem 5vw; /* 5vw creates the slim space on edges for images to slide into */
+            width: 100%;
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
         }
@@ -31,45 +86,105 @@
         }
 
         .slide {
-            flex: 0 0 calc(85% - 1rem); /* 85% width on mobile creates the 'peeking' edge */
-            scroll-snap-align: center; /* Snap to center of slide */
+            /* Mobile: Displays ~1.15 images */
+            flex: 0 0 calc(82vw - var(--carousel-gap));
+            max-width: 300px;
+            scroll-snap-align: center;
             display: flex;
-            justify-content: center; /* Center the image within the slide space */
+            justify-content: center;
             align-items: center;
-            border-radius: 16px;
-            overflow: hidden;
-            background-color: transparent; /* Text areas are part of screenshots, so slides are minimal */
-        }
-
-        /* Large Screen Media Query for standard layout on Desktop */
-        @media (min-width: 800px) {
-            .carousel-container {
-                gap: 2rem;
-            }
-            .slide {
-                flex: 0 0 calc(50% - 2rem); /* Show 2 slides nicely on large screens */
-            }
+            border-radius: 18px;
+            /* Elegant Shadow effect for screens */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            background-color: #fff;
         }
 
         .slide-image {
             width: 100%;
             height: auto;
-            border-radius: 16px; /* Rounded frame for images */
+            border-radius: 18px;
+            display: block;
         }
 
-        /* Standard App Store Button styling */
-        .app-store-button-container {
-            margin-top: 2rem;
-            margin-bottom: 3rem;
+        /* Carousel Navigation Arrows */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #eaeaea;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: none; /* Hidden on mobile (users naturally swipe) */
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+
+        .carousel-arrow:hover {
+            background: #fff;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+
+        .left-arrow { left: 1rem; }
+        .right-arrow { right: 1rem; }
+
+        .carousel-arrow svg {
+            width: 24px;
+            height: 24px;
+            fill: #333;
+        }
+
+        /* Medium Screens (Tablets): Show 2-3 slides + Arrows */
+        @media (min-width: 650px) {
+            .carousel-arrow {
+                display: flex; /* Show arrows */
+            }
+            .carousel-container {
+                padding: 1.5rem 3rem;
+            }
+            .slide {
+                flex: 0 0 calc(50% - var(--carousel-gap)); /* Show ~2 images nicely */
+            }
+        }
+
+        /* Large Screens (Laptops/Desktops): Display ALL screenshots elegantly */
+        @media (min-width: 1024px) {
+            .carousel-wrapper {
+                padding: 0 2rem;
+            }
+            .carousel-arrow {
+                display: none; /* Disable arrows since everything fits */
+            }
+            .carousel-container {
+                justify-content: center; /* Center them perfectly */
+                overflow-x: visible; /* Disable scroll */
+                padding: 1rem;
+                gap: 1.5rem;
+            }
+            .slide {
+                flex: 1 1 0; /* Let all 5 dynamically fit */
+                max-width: 240px; /* Prevent them from stretching too wide */
+            }
+        }
+
+        /* Bottom Call to Action */
+        .bottom-cta {
             text-align: center;
+            margin: 5rem auto;
+            padding: 0 1rem;
         }
 
-        .app-store-button {
-            display: inline-block;
-        }
-        .app-store-button img {
-            height: 60px; /* matched from screenshots */
-            width: auto;
+        .cta-text {
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            color: #111;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
         }
 
     </style>
@@ -78,11 +193,10 @@
 
     <main>
         <!-- Logo and Hero Headline -->
-        <div style="text-align: center; margin-top: 3rem;">
-            <img src="/images/logo.png" alt="FontStar Logo" style="height: 100px; width: auto;">
-            <!-- Removed duplicative H1 headline -->
+        <div class="hero">
+            <img src="/images/logo.png" alt="FontStar Logo" class="hero-logo">
+            <p class="slogan">You deserve a better reading experience on Safari.</p>
             
-            <!-- CTA Button: Hero -->
             <div class="app-store-button-container">
                 <a href="https://apps.apple.com/us/app/fontstar-for-safari/id6751470918" class="app-store-button" target="_blank" rel="noopener noreferrer">
                     <img src="/images/app-store-badge.svg" alt="Download on the App Store">
@@ -90,43 +204,33 @@
             </div>
         </div>
 
-        <!-- 5-Slide Mobile Peeking Carousel (Images Only) -->
-        <div class="carousel-container">
+        <!-- Dynamic Carousel Section -->
+        <div class="carousel-wrapper">
+            
+            <!-- Left Arrow (visible on tablets/small laptops) -->
+            <button class="carousel-arrow left-arrow" aria-label="Previous screenshot" onclick="scrollCarousel(-1)">
+                <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
 
-            <!-- Slide 1 -->
-            <div class="slide">
-                <!-- Removed all text and description divs. Images fill the slides. -->
-                <img src="/images/feature1.jpg" alt="FontStar Feature 1" class="slide-image">
+            <div class="carousel-container" id="carousel">
+                <div class="slide"><img src="/images/feature1.jpg" alt="FontStar Feature 1" class="slide-image"></div>
+                <div class="slide"><img src="/images/feature2.jpg" alt="FontStar Feature 2" class="slide-image"></div>
+                <div class="slide"><img src="/images/feature3.jpg" alt="FontStar Feature 3" class="slide-image"></div>
+                <div class="slide"><img src="/images/feature4.jpg" alt="FontStar Feature 4" class="slide-image"></div>
+                <div class="slide"><img src="/images/feature5.jpg" alt="FontStar Feature 5" class="slide-image"></div>
             </div>
 
-            <!-- Slide 2 -->
-            <div class="slide">
-                <img src="/images/feature2.jpg" alt="FontStar Feature 2" class="slide-image">
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="slide">
-                <img src="/images/feature3.jpg" alt="FontStar Feature 3" class="slide-image">
-            </div>
-
-            <!-- Slide 4 -->
-            <div class="slide">
-                <!-- Removed HTML descriptions and CJK bubble overlays. Image-only. -->
-                <img src="/images/feature4.jpg" alt="FontStar Feature 4" class="slide-image">
-            </div>
-
-            <!-- Slide 5 -->
-            <div class="slide">
-                <img src="/images/feature5.jpg" alt="FontStar Feature 5" class="slide-image">
-            </div>
-
+            <!-- Right Arrow -->
+            <button class="carousel-arrow right-arrow" aria-label="Next screenshot" onclick="scrollCarousel(1)">
+                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+            
         </div>
 
-        <!-- Get FontStar Section (matched from image_4.png) -->
-        <div style="text-align: center; margin-top: 5rem; margin-bottom: 5rem;">
-            <!-- Removed the "Get FontStar..." headline -->
+        <!-- Get FontStar CTA Section -->
+        <div class="bottom-cta">
+            <h2 class="cta-text">Get FontStar for Safari today.</h2>
             
-            <!-- CTA Button: End of Page -->
             <div class="app-store-button-container">
                 <a href="https://apps.apple.com/us/app/fontstar-for-safari/id6751470918" class="app-store-button" target="_blank" rel="noopener noreferrer">
                     <img src="/images/app-store-badge.svg" alt="Download on the App Store">
@@ -137,6 +241,16 @@
     </main>
 
     {% include footer.html %}
+
+    <!-- JavaScript to handle smooth scrolling for arrows -->
+    <script>
+        function scrollCarousel(direction) {
+            const carousel = document.getElementById('carousel');
+            // Scroll dynamically based on screen width sizes 
+            const scrollAmount = carousel.clientWidth * 0.75 * direction;
+            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 </html>
