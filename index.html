@@ -1,1 +1,244 @@
-https://apps.apple.com/us/app/fontstar-for-safari/id6751470918
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FontStar - A Better Reading Experience on Safari</title>
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Page-Specific Peeking Carousel Styles -->
+    <style>
+        /* Modern Mobile Peeking Carousel with CSS Scroll Snap */
+        .carousel-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1rem; /* Space between slides */
+            padding-bottom: 1.5rem; /* Space for scrollbar on desktop */
+            margin-top: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            /* Hide standard scrollbar for clean look */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, and Opera */
+        }
+
+        .slide {
+            flex: 0 0 calc(85% - 1rem); /* 85% width on mobile creates the 'peeking' edge */
+            scroll-snap-align: center; /* Snap to center of slide */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background-color: white; /* Slides have white background in design */
+        }
+
+        /* Large Screen Media Query for standard layout on Desktop */
+        @media (min-width: 800px) {
+            .carousel-container {
+                gap: 2rem;
+            }
+            .slide {
+                flex: 0 0 calc(50% - 2rem); /* Show 2 slides nicely on large screens */
+            }
+        }
+
+        /* Styling based on image_3.png structure */
+        .slide-content-top {
+            width: 100%;
+            background-color: transparent; /* Top description area is transparent in design */
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.7rem;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .slide-image-section {
+            width: 100%;
+            /* Design in image_3.png has a faded effect at bottom */
+            background: linear-gradient(180deg, #FAF5FF 0%, #FAF5FF 60%, rgba(250,245,255,0) 100%); 
+            padding: 1.5rem;
+            position: relative; /* for absolute positioned bubbles */
+        }
+
+        .slide-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+        }
+
+        /* Peeking CJK Greeting Bubbles from top in design */
+        .slide-bubble-container {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 2; /* keep bubbles on top of gradient and image */
+        }
+
+        .slide-bubble {
+            background-color: #E2CDF6; /* lavender bubble background */
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        /* Standard App Store Button styling */
+        .app-store-button-container {
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .app-store-button {
+            display: inline-block;
+        }
+        .app-store-button img {
+            height: 60px; /* matched from screenshots */
+            width: auto;
+        }
+
+    </style>
+</head>
+<body>
+
+    <main>
+        <!-- Logo and Hero Headline -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <img src="/images/logo.png" alt="FontStar Logo" style="height: 100px; width: auto;">
+            <h1>You deserve a better reading experience on Safari.</h1>
+            
+            <!-- CTA Button: Hero -->
+            <div class="app-store-button-container">
+                <a href="https://apps.apple.com/us/app/fontstar-for-safari/id6751470918" class="app-store-button" target="_blank" rel="noopener noreferrer">
+                    <img src="/images/app-store-badge.svg" alt="Download on the App Store">
+                </a>
+            </div>
+        </div>
+
+        <!-- 5-Slide Mobile Peeking Carousel -->
+        <div class="carousel-container">
+
+            <!-- Slide 1 (Placeholder based on design structure) -->
+            <div class="slide">
+                <div class="slide-content-top">
+                    <div class="feature-number"># 1</div>
+                    <div class="feature-title">Change Body Font</div>
+                    <div class="feature-description">Apply beautifully designed fonts to the main website content for maximum readability.</div>
+                </div>
+                <div class="slide-image-section">
+                    <img src="/images/feature1.png" alt="Feature 1 Image" class="slide-image">
+                </div>
+            </div>
+
+            <!-- Slide 2 (Placeholder) -->
+            <div class="slide">
+                <div class="slide-content-top">
+                    <div class="feature-number"># 2</div>
+                    <div class="feature-title">Adjust Text Size</div>
+                    <div class="feature-description">Fine-tune the size of the text to a perfect level for your vision.</div>
+                </div>
+                <div class="slide-image-section">
+                    <img src="/images/feature2.png" alt="Feature 2 Image" class="slide-image">
+                </div>
+            </div>
+
+            <!-- Slide 3 (Placeholder) -->
+            <div class="slide">
+                <div class="slide-content-top">
+                    <div class="feature-number"># 3</div>
+                    <div class="feature-title">Adjust Line Height</div>
+                    <div class="feature-description">Find the sweet spot of spacing between lines to prevent eye strain.</div>
+                </div>
+                <div class="slide-image-section">
+                    <img src="/images/feature3.png" alt="Feature 3 Image" class="slide-image">
+                </div>
+            </div>
+
+            <!-- Slide 4 (Real content matched from image_3.png) -->
+            <div class="slide">
+                <div class="slide-content-top">
+                    <div class="feature-number"># 4</div>
+                    <div class="feature-title">Works with other Safari extensions. 🤝</div>
+                    <div class="feature-description">
+                        No conflicts with ad blockers, translators, dark mode...
+                        <br>Recently supported CJK languages!
+                    </div>
+                </div>
+                <div class="slide-image-section">
+                    
+                    <!-- Top CJK Greeting Bubbles matched from design -->
+                    <div class="slide-bubble-container">
+                        <div class="slide-bubble">你好 👋</div>
+                        <div class="slide-bubble">こんにちは 😌</div>
+                        <div class="slide-bubble">안녕하세요 🤞</div>
+                    </div>
+                    
+                    <img src="/images/feature4.png" alt="Feature 4 Image" class="slide-image">
+                </div>
+            </div>
+
+            <!-- Slide 5 (Placeholder) -->
+            <div class="slide">
+                <div class="slide-content-top">
+                    <div class="feature-number"># 5</div>
+                    <div class="feature-title">Save Presets</div>
+                    <div class="feature-description">FontStar remembers your settings for each specific website you visit.</div>
+                </div>
+                <div class="slide-image-section">
+                    <img src="/images/feature5.png" alt="Feature 5 Image" class="slide-image">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Get FontStar Section (matched from image_4.png) -->
+        <div style="text-align: center; margin-top: 5rem; margin-bottom: 5rem;">
+            <h1>Get FontStar for Safari today.</h1>
+            
+            <!-- CTA Button: End of Page -->
+            <div class="app-store-button-container">
+                <a href="https://apps.apple.com/us/app/fontstar-for-safari/id6751470918" class="app-store-button" target="_blank" rel="noopener noreferrer">
+                    <img src="/images/app-store-badge.svg" alt="Download on the App Store">
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    {% include footer.html %}
+
+</body>
+</html>
