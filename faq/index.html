@@ -7,6 +7,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - FontStar</title>
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Consistency fix for FAQ widths */
+        details {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            border-top: 1px solid #ccc;
+            padding: 15px 0;
+        }
+        details:last-of-type {
+            border-bottom: 1px solid #ccc;
+        }
+        summary {
+            display: flex;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1.2rem;
+            cursor: pointer;
+            list-style: none;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        details[open] summary::after {
+            content: '−';
+        }
+        .faq-content {
+            margin-top: 15px;
+            padding-right: 20px;
+            color: #555;
+        }
+        ul, ol {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 <body>
 
