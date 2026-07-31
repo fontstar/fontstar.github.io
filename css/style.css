@@ -40,12 +40,9 @@ footer { background-color: #FAEDED; text-align: center; padding: 30px 20px; font
 footer a { color: #333; text-decoration: underline; text-underline-offset: 2px; }
 footer span { margin: 0 10px; color: #666; }
 
-/* Reusing homepage dynamic sizing + centering for subpages */
-.universal-header {
-    margin-top: 4rem; /* Matches the 4rem spacing from your homepage */
-}
+/* Reusing homepage dynamic sizing + centering for subpages:  .universal-header { margin-top: 4rem; /* Matches the 4rem spacing from your homepage */}*/
 .header-logo {
-    width: clamp(120px, 30vw, 220px); /* Reused from index.html! */
+    width: clamp(180px, 30vw, 220px); /* Reused from index.html! */
     height: auto;                     /* Reused from index.html! */
     object-fit: contain;              /* Reused from index.html! */
     display: block;                   /* Added to ensure centering */
