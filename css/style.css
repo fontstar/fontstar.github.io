@@ -197,31 +197,31 @@ summary:active .faq-icon {
   transform: scale(0.85);
 }
 
-/* Pure crisp glyph bars forming the + and - */
+/* Pure crisp glyph bars forming the thicker + and - */
 .faq-icon::before,
 .faq-icon::after {
   content: '';
   position: absolute;
   background-color: #374151;
-  border-radius: 1px;
+  border-radius: 1.5px;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, background-color 0.2s ease;
   transform-origin: center;
 }
 
-/* Horizontal bar of the plus / minus */
+/* Horizontal bar of the plus / minus (thicker 2.75px weight) */
 .faq-icon::before {
   width: 16px;
-  height: 2px;
-  top: 9px;
+  height: 2.75px;
+  top: calc(50% - 1.375px);
   left: 2px;
 }
 
-/* Vertical bar of the plus */
+/* Vertical bar of the plus (thicker 2.75px weight) */
 .faq-icon::after {
-  width: 2px;
+  width: 2.75px;
   height: 16px;
   top: 2px;
-  left: 9px;
+  left: calc(50% - 1.375px);
 }
 
 summary:hover .faq-icon::before,
@@ -245,8 +245,8 @@ details[open] .faq-icon::after {
 summary:not(:has(.faq-icon))::after {
   content: '+';
   display: inline-block;
-  font-size: 1.5rem;
-  font-weight: 400;
+  font-size: 1.6rem;
+  font-weight: 700;
   line-height: 1;
   color: #374151;
   background: none;
