@@ -1,51 +1,424 @@
-/* Base & Shared Styles */
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
-main { max-width: 800px; margin: 0 auto; padding: 40px 20px; flex: 1; }
-h1 { text-align: center; font-size: 2.5rem; margin-bottom: 40px; }
+/* ==========================================================================
+   FontStar - Mobile-First Responsive Stylesheet
+   ========================================================================== */
 
-/* Privacy Page Specific */
-p { margin-bottom: 20px; }
-.footer-note { margin-top: 40px; font-size: 0.9rem; color: #666; }
-
-/* FAQ Page Specific */
-details { border-top: 1px solid #ccc; padding: 15px 0; }
-details:last-of-type { border-bottom: 1px solid #ccc; }
-summary { font-size: 1.2rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-summary::-webkit-details-marker { display: none; }
-summary::after { content: '+'; font-size: 1.5rem; font-weight: bold; }
-details[open] summary::after { content: '−'; }
-.faq-content { margin-top: 15px; padding-right: 20px; color: #555; }
-ul { margin-top: 10px; margin-bottom: 10px; }
-
-/* Tutorial Page Specific */
-.intro { text-align: center; margin-bottom: 40px; color: #555; }
-.step-card { background-color: #FAF5FF; border-radius: 16px; padding: 25px; margin-bottom: 20px; }
-.step-number { background-color: #A855F7; color: white; width: 30px; height: 30px; display: inline-flex; justify-content: center; align-items: center; border-radius: 8px; font-weight: bold; margin-bottom: 15px; }
-.step-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; }
-.step-subtext { font-size: 0.9rem; color: #777; border-top: 1px dashed #D8B4FE; padding-top: 10px; margin-top: 15px; }
-.help-footer { text-align: center; margin-top: 40px; font-size: 1rem; }
-.help-footer a { color: #333; }
-
-/* --- Utility Styles (like for in-line icons) --- */
-.inline-svg {
-    display: inline-block;
-    height: 1.1em; /* slightly taller than the line-height for better visibility */
-    width: auto;
-    vertical-align: text-bottom; /* aligns with text baseline */
-    margin: 0 0.1em; /* adds small spacing between icons and text */
+/* Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-/* Shared Footer Styles */
-footer { background-color: #FAEDED; text-align: center; padding: 30px 20px; font-size: 0.9rem; margin-top: 40px; }
-footer a { color: #333; text-decoration: underline; text-underline-offset: 2px; }
-footer span { margin: 0 10px; color: #666; }
+:root {
+  --primary-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --color-text-main: #111827;
+  --color-text-muted: #4b5563;
+  --color-text-light: #6b7280;
+  --color-bg-main: #f9fafb;
+  --color-bg-card: #ffffff;
+  --color-footer-bg: #faeded;
+  --color-purple-bg: #faf5ff;
+  --color-purple-border: #f3e8ff;
+  --color-purple-accent: #9333ea;
+  --color-blue-accent: #0071e3;
+  --border-radius-card: 16px;
+  --border-radius-btn: 12px;
+}
 
-/* Reusing homepage dynamic sizing + centering for subpages: */  
-.universal-header { margin-top: 4rem; }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--primary-font);
+  line-height: 1.6;
+  color: var(--color-text-main);
+  background-color: var(--color-bg-main);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+/* Layout */
+main {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  padding-left: max(1.25rem, env(safe-area-inset-left));
+  padding-right: max(1.25rem, env(safe-area-inset-right));
+  flex: 1;
+}
+
+@media (min-width: 640px) {
+  main {
+    padding: 2.5rem 2rem 4rem;
+  }
+}
+
+/* Typography */
+h1 {
+  text-align: center;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-main);
+  margin: 1rem 0 2rem;
+  line-height: 1.25;
+}
+
+p {
+  margin: 0 0 1.25rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  touch-action: manipulation;
+}
+
+/* Universal Header & Logo */
+.universal-header {
+  width: 100%;
+  text-align: center;
+  padding-top: max(1rem, env(safe-area-inset-top));
+  margin: 1rem 0 0.5rem;
+}
+
+.logo-link {
+  display: inline-block;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.logo-link:hover, .logo-link:focus-visible {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
 .header-logo {
-    width: clamp(180px, 30vw, 260px); /* Reused from index.html! */
-    height: auto;                     /* Reused from index.html! */
-    object-fit: contain;              /* Reused from index.html! */
-    display: block;                   /* Added to ensure centering */
-    margin: 4rem auto 0;              /* Added to ensure centering */
+  width: clamp(160px, 45vw, 240px);
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Page Specific: Privacy Page
+   ========================================================================== */
+.footer-note {
+  margin-top: 2.5rem;
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1rem;
+}
+
+/* ==========================================================================
+   Page Specific: FAQ Accordions (Pure Glyph +/- Icon with Smooth Animation)
+   ========================================================================== */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+details {
+  display: block;
+  width: 100%;
+  border-top: 1px solid #e5e7eb;
+  padding: 0;
+}
+
+details:last-of-type {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+summary {
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  padding: 1.15rem 0.25rem;
+  font-size: clamp(1.05rem, 3vw, 1.2rem);
+  font-weight: 600;
+  color: var(--color-text-main);
+  cursor: pointer;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: color 0.15s ease;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:hover {
+  color: #000000;
+}
+
+/* Pure glyph +/- icon container without background, border, or shadow */
+.faq-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  flex-shrink: 0;
+  margin-left: 0.75rem;
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+summary:active .faq-icon {
+  transform: scale(0.85);
+}
+
+/* Pure crisp glyph bars forming the + and - */
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  background-color: #374151;
+  border-radius: 1px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, background-color 0.2s ease;
+  transform-origin: center;
+}
+
+/* Horizontal bar of the plus / minus */
+.faq-icon::before {
+  width: 16px;
+  height: 2px;
+  top: 9px;
+  left: 2px;
+}
+
+/* Vertical bar of the plus */
+.faq-icon::after {
+  width: 2px;
+  height: 16px;
+  top: 2px;
+  left: 9px;
+}
+
+summary:hover .faq-icon::before,
+summary:hover .faq-icon::after {
+  background-color: #111827;
+}
+
+/* Animate + into - on open:
+   The horizontal bar rotates 180deg and vertical bar rotates 90deg and scales down to 0 */
+details[open] .faq-icon::before {
+  transform: rotate(180deg);
+  background-color: #111827;
+}
+
+details[open] .faq-icon::after {
+  transform: rotate(90deg) scale(0);
+  opacity: 0;
+}
+
+/* Fallback if no .faq-icon element is provided */
+summary:not(:has(.faq-icon))::after {
+  content: '+';
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #374151;
+  background: none;
+  border: none;
+  box-shadow: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+  transform-origin: center;
+}
+
+details[open] summary:not(:has(.faq-icon))::after {
+  content: '−';
+  transform: rotate(180deg);
+  color: #111827;
+}
+
+.faq-content {
+  padding: 0.25rem 0.5rem 1.5rem 0.25rem;
+  color: var(--color-text-muted);
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  line-height: 1.7;
+}
+
+.faq-content p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-content ul, .faq-content ol {
+  margin: 0.75rem 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.faq-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Page Specific: Tutorial Page
+   ========================================================================== */
+.intro {
+  text-align: center;
+  margin: 0 auto 2rem;
+  max-width: 580px;
+  color: var(--color-text-muted);
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+}
+
+.step-card {
+  background-color: var(--color-purple-bg);
+  border: 1px solid var(--color-purple-border);
+  border-radius: var(--border-radius-card);
+  padding: 1.25rem 1.15rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.04);
+}
+
+@media (min-width: 640px) {
+  .step-card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.step-number {
+  background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+  color: white;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 4px rgba(147, 51, 234, 0.25);
+}
+
+.step-title {
+  font-size: clamp(1rem, 2.8vw, 1.15rem);
+  font-weight: 600;
+  color: var(--color-text-main);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.step-subtext {
+  font-size: 0.9rem;
+  color: #6b7280;
+  border-top: 1px dashed #d8b4fe;
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  line-height: 1.55;
+}
+
+.step-subtext p {
+  margin: 0.5rem 0 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+.help-footer {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding: 1rem;
+  font-size: clamp(0.95rem, 2.5vw, 1rem);
+  color: var(--color-text-muted);
+}
+
+.help-footer a {
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+/* Inline SVGs for tutorial icons */
+.inline-svg {
+  display: inline-block;
+  height: 1.15em;
+  width: auto;
+  max-width: 1.4em;
+  vertical-align: -0.15em;
+  margin: 0 0.2em;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   Shared Footer (Mobile-Friendly Touch-Optimized Navigation)
+   ========================================================================== */
+footer {
+  background-color: var(--color-footer-bg);
+  text-align: center;
+  padding: 1.5rem 1rem calc(1.5rem + env(safe-area-inset-bottom));
+  font-size: 0.9rem;
+  margin-top: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.footer-nav a {
+  color: #374151;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0.5rem 0.75rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.footer-nav a:hover, .footer-nav a:focus-visible {
+  color: #111827;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.footer-nav .separator {
+  color: #9ca3af;
+  user-select: none;
+}
+
+@media (max-width: 480px) {
+  .footer-nav .separator {
+    display: none;
+  }
 }
