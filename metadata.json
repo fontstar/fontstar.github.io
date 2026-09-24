@@ -1,0 +1,8 @@
+{
+  "name": "FontStar",
+  "description": "FontStar provides a better reading experience on Safari for iPhone, iPad, and Mac with beautiful typography and complete privacy.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
