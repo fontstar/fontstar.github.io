@@ -31,6 +31,8 @@
   --color-arrow-icon: #1f2937;
   --color-alert-red: #ff3b30;
   --color-toggle-border: #d1d5db;
+  --color-tabs-bg: #f3f4f6;
+  --color-tab-active-bg: #ffffff;
   --border-radius-card: 16px;
   --border-radius-btn: 12px;
 }
@@ -63,6 +65,8 @@
   --color-arrow-icon: #dedede;
   --color-alert-red: #ff453a;
   --color-toggle-border: #4a4a4a;
+  --color-tabs-bg: #1f1f1f;
+  --color-tab-active-bg: #2e2e2e;
 }
 
 /* Shade every image/video slightly so white-heavy screenshots don't glare */
@@ -384,6 +388,49 @@ details[open] summary:not(:has(.faq-icon))::after {
   max-width: 580px;
   color: var(--color-text-muted);
   font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+}
+
+/* Device tabs (iPhone & iPad / Mac): segmented control */
+.device-tabs {
+  display: flex;
+  max-width: 360px;
+  margin: 0 auto 1.75rem;
+  padding: 4px;
+  gap: 4px;
+  border-radius: var(--border-radius-btn);
+  background-color: var(--color-tabs-bg);
+  border: 1px solid var(--color-border);
+}
+
+.device-tab {
+  flex: 1 1 0;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 0.975rem;
+  font-weight: 600;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.device-tab:hover {
+  color: var(--color-text-main);
+}
+
+.device-tab[aria-selected="true"] {
+  background-color: var(--color-tab-active-bg);
+  color: var(--color-text-main);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.device-tab:focus-visible {
+  outline: 2px solid var(--color-purple-accent);
+  outline-offset: 2px;
 }
 
 .step-card {
