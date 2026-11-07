@@ -19,6 +19,17 @@
   --color-purple-border: #f3e8ff;
   --color-purple-accent: #9333ea;
   --color-blue-accent: #0071e3;
+  --color-text-soft: #374151;
+  --color-text-hover: #000000;
+  --color-border: #e5e7eb;
+  --color-hairline: rgba(0, 0, 0, 0.04);
+  --color-hover-bg: rgba(0, 0, 0, 0.04);
+  --color-separator: #9ca3af;
+  --color-purple-dash: #d8b4fe;
+  --color-dot: #d1d5db;
+  --color-arrow-bg: rgba(255, 255, 255, 0.95);
+  --color-arrow-icon: #1f2937;
+  --color-alert-red: #ff3b30;
   --border-radius-card: 16px;
   --border-radius-btn: 12px;
 }
@@ -122,7 +133,7 @@ a {
   margin-top: 2.5rem;
   font-size: 0.875rem;
   color: var(--color-text-light);
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--color-border);
   padding-top: 1rem;
 }
 
@@ -139,12 +150,12 @@ a {
 details {
   display: block;
   width: 100%;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--color-border);
   padding: 0;
 }
 
 details:last-of-type {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--color-border);
 }
 
 summary {
@@ -171,7 +182,7 @@ summary::-webkit-details-marker {
 }
 
 summary:hover {
-  color: #000000;
+  color: var(--color-text-hover);
 }
 
 /* Pure glyph +/- icon container without background, border, or shadow */
@@ -202,7 +213,7 @@ summary:active .faq-icon {
 .faq-icon::after {
   content: '';
   position: absolute;
-  background-color: #374151;
+  background-color: var(--color-text-soft);
   border-radius: 1.5px;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, background-color 0.2s ease;
   transform-origin: center;
@@ -226,14 +237,14 @@ summary:active .faq-icon {
 
 summary:hover .faq-icon::before,
 summary:hover .faq-icon::after {
-  background-color: #111827;
+  background-color: var(--color-text-main);
 }
 
 /* Animate + into - on open:
    The horizontal bar rotates 180deg and vertical bar rotates 90deg and scales down to 0 */
 details[open] .faq-icon::before {
   transform: rotate(180deg);
-  background-color: #111827;
+  background-color: var(--color-text-main);
 }
 
 details[open] .faq-icon::after {
@@ -248,7 +259,7 @@ summary:not(:has(.faq-icon))::after {
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 1;
-  color: #374151;
+  color: var(--color-text-soft);
   background: none;
   border: none;
   box-shadow: none;
@@ -259,7 +270,7 @@ summary:not(:has(.faq-icon))::after {
 details[open] summary:not(:has(.faq-icon))::after {
   content: '−';
   transform: rotate(180deg);
-  color: #111827;
+  color: var(--color-text-main);
 }
 
 .faq-content {
@@ -335,8 +346,8 @@ details[open] summary:not(:has(.faq-icon))::after {
 
 .step-subtext {
   font-size: 0.9rem;
-  color: #6b7280;
-  border-top: 1px dashed #d8b4fe;
+  color: var(--color-text-light);
+  border-top: 1px dashed var(--color-purple-dash);
   padding-top: 0.75rem;
   margin-top: 0.75rem;
   line-height: 1.55;
@@ -381,7 +392,7 @@ footer {
   padding: 1.5rem 1rem calc(1.5rem + env(safe-area-inset-bottom));
   font-size: 0.9rem;
   margin-top: auto;
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  border-top: 1px solid var(--color-hairline);
 }
 
 .footer-nav {
@@ -395,7 +406,7 @@ footer {
 }
 
 .footer-nav a {
-  color: #374151;
+  color: var(--color-text-soft);
   text-decoration: underline;
   text-underline-offset: 3px;
   padding: 0.5rem 0.75rem;
@@ -408,12 +419,12 @@ footer {
 }
 
 .footer-nav a:hover, .footer-nav a:focus-visible {
-  color: #111827;
-  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--color-text-main);
+  background-color: var(--color-hover-bg);
 }
 
 .footer-nav .separator {
-  color: #9ca3af;
+  color: var(--color-separator);
   user-select: none;
 }
 

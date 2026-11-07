@@ -12,7 +12,7 @@
         }
 
         body {
-            background-color: #f9fafb;
+            background-color: var(--color-bg-main);
         }
 
         .homepage-main {
@@ -40,7 +40,7 @@
 
         .slogan {
             font-size: clamp(1.3rem, 4.5vw, 1.85rem);
-            color: #111827;
+            color: var(--color-text-main);
             margin: 1.25rem auto 0;
             max-width: 580px;
             font-weight: 700;
@@ -121,8 +121,8 @@
             border-radius: 20px;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-color: #fff;
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-hairline);
             overflow: hidden;
         }
 
@@ -150,7 +150,7 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background-color: #d1d5db;
+            background-color: var(--color-dot);
             border: none;
             padding: 0;
             cursor: pointer;
@@ -159,7 +159,7 @@
         }
 
         .carousel-dot.active {
-            background-color: #111827;
+            background-color: var(--color-text-main);
             width: 24px;
             border-radius: 4px;
         }
@@ -169,10 +169,10 @@
             position: absolute;
             top: 45%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--color-arrow-bg);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            border: 1px solid #e5e7eb;
+            border: 1px solid var(--color-border);
             border-radius: 50%;
             width: 44px;
             height: 44px;
@@ -189,7 +189,7 @@
         }
 
         .carousel-arrow:hover {
-            background: #ffffff;
+            background: var(--color-bg-card);
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
             transform: translateY(-50%) scale(1.05);
         }
@@ -204,7 +204,7 @@
         .carousel-arrow svg {
             width: 22px;
             height: 22px;
-            fill: #1f2937;
+            fill: var(--color-arrow-icon);
         }
 
         /* Tablet Screens (min-width: 650px) */
@@ -258,7 +258,7 @@
 
         .cta-text {
             font-size: clamp(1.3rem, 4vw, 1.75rem);
-            color: #111827;
+            color: var(--color-text-main);
             margin: 0 0 1.25rem;
             font-weight: 700;
             line-height: 1.3;
