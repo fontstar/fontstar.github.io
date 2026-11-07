@@ -20,3 +20,9 @@ Marketing site for FontStar (Safari extension), served by GitHub Pages (Jekyll) 
 - Fixed in both themes on purpose: purple step-number badge, App Store badge, tutorial overlay and its blue button.
 - The homepage has no shared header (it has its own hero), so it includes `site-controls.html` directly.
 - When changing styles, check every page in both themes at 1280px and 390px.
+
+## Tutorial page
+- Two tabs (`iPhone & iPad`, `Mac`) built as an accessible tablist in `tutorial/index.html`. URL hash `#mac` / `#iphone-ipad` selects a tab; otherwise Macs get the Mac tab (iPads reporting as Mac are detected via `navigator.maxTouchPoints > 1`). Keep step content for each device in its own panel.
+
+## Git hygiene
+- Stage files by name (`git add <files>`), never `git add -A`: local `node_modules/` once slipped into a commit.
